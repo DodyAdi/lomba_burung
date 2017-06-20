@@ -1,5 +1,5 @@
 <?php
-  include 'index.php';
+  include 'header.php';
  ?>
 
 <script type="text/javascript">
@@ -9,31 +9,31 @@ function klik(data) {
   $('.row.kelas'+data).remove();
 }
 
-$( document ).ready(function() {
-  $(".btn.btn-info").on('click',function(){
-    //console.log('asdasd')
-    $.ajax({
-      type: "POST",
-      dataType: 'json',
-      url: 'tambah_kelas.php',
-      data:  {kelas : i},
-      success: function(data){
-    	   $(".tampil.data").append(data.kelas);
-       }
-     });
-    i++;
-  });
-
-});
+// $( document ).ready(function() {
+//   $(".btn.btn-info").on('click',function(){
+//     //console.log('asdasd')
+//     $.ajax({
+//       type: "POST",
+//       dataType: 'json',
+//       url: 'tambah_kelas.php',
+//       data:  {kelas : i},
+//       success: function(data){
+//     	   $(".tampil.data").append(data.kelas);
+//        }
+//      });
+//     i++;
+//   });
+//
+// });
 </script>
 <div class="container-fluid" id='container'>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <br>
-      <form action="simpan_lomba.php" method='POST'>
+      <form action="simpan_lomba.php" method='POST'  enctype="multipart/form-data">
         <div class="form-group">
           <label>Nama Lomba</label>
-          <input type="text" class="form-control" placeholder="Nama Burung" name='nama_lomba'>
+          <input type="text" class="form-control" placeholder="Nama Lomba" name='nama_lomba'>
         </div>
         <div class="form-group">
           <label>Waktu Pelaksanaan</label>
@@ -43,13 +43,16 @@ $( document ).ready(function() {
           <label>Tempat Perlombaan</label>
           <textarea name="alamat" rows="8" cols="80" class="form-control"></textarea>
         </div>
+        <div class="form-group">
+          <label>Foto</label>
+          <input type="file" class="form-control" name='foto'>
+        </div>
           <button type="button" class="btn btn-info" >Tambah Kelas</button>
         <div class="form-group">
           <div class="tampil data">
-
           </div>
+        </div>
 
-        </div><button type="" class="btn btn-primary" value="simpan" id="akelas['0']">Submit</button>
         <button type="submit" class="btn btn-primary" value="simpan" name='aksi'>Submit</button>
       </form>
     </div>

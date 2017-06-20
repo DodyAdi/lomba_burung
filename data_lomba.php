@@ -1,5 +1,5 @@
 <?php
-  include 'index.php';
+  include 'header.php';
   include 'koneksi.php';
  ?>
 <div class="container-fluid" id='container'>
@@ -40,7 +40,7 @@
                 echo "<td align='center'><button type='button' class='btn btn-warning'>{$data['status_lomba']}</button></td>";
               }
               echo "<td><a href='form_edit_lomba.php?id={$data['kd_lomba']}'><button type='button' class='btn btn-warning'>Edit</button></a>
-                <a href='simpan_burung.php?id={$data['kd_lomba']}&aksi=delete'><button type='button' class='btn btn-danger'>Hapus</button></td>";
+                <a href='hapus_lomba.php?id={$data['kd_lomba']}&aksi=delete'><button type='button' class='btn btn-danger'>Hapus</button></td>";
               // $query_kelas = "SELECT * FROM kelas where kd_lomba = {$data['kd_lomba']} group by nama_kelas";
               // $hasil_kelas = mysqli_query($konek, $query_kelas);
               // $kelas = '';
@@ -53,7 +53,6 @@
               //     $burung .= $data_burung['nama_burung'];
               //   }
               // }
-
               echo "</tr>";
               $i++;
             }
@@ -63,5 +62,6 @@
         </table>
       </div>
     </div>
-</div>
+  </div>
+</div
 <br><br><br><br><br>

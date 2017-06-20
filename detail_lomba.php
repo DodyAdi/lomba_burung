@@ -1,5 +1,5 @@
 <?php
-  include "index.php";
+  include "header.php";
   include 'koneksi.php';
   $kd = $_GET['id'];
   $query_lomba = "select *, date_format(tanggal, '%d %M %Y / Pukul %H:%I') as waktu from lomba where kd_lomba = $kd";

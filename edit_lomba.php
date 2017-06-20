@@ -48,5 +48,6 @@ else {
       }
     }
   }
-  echo mysqli_insert_id($konek);
+  //echo mysqli_insert_id($konek);
+  header("Location: data_lomba.php");
 ?>

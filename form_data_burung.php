@@ -1,5 +1,5 @@
 <?php
-include 'index.php';
+include 'header.php';
 include 'koneksi.php';
 $query ="select * from burung";
 $hasil= mysqli_query($konek,$query);

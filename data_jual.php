@@ -1,4 +1,4 @@
-<?php include 'index.php'; include 'koneksi.php';
+<?php include 'header.php'; include 'koneksi.php';
 $query = "select *, date_format(tanggal, '%d %M %Y / Pukul %H:%I') as waktu from Lomba limit 1";
 $hasil = mysqli_query($konek, $query);
 $data = mysqli_fetch_assoc($hasil);

@@ -1,5 +1,5 @@
 <?php
-  include 'index.php';
+  include 'header.php';
   include 'koneksi.php';
   $kd = $_GET['id'];
   $query_lomba = "select *,DATE_FORMAT(tanggal, '%Y-%m-%dT%H:%i') AS waktu from lomba where kd_lomba = $kd";
@@ -15,7 +15,7 @@
         <div class="form-group">
           <label>Nama Lomba</label>
           <input type="hidden" name="kode" value="<?php echo $data_lomba['kd_lomba']; ?>">
-          <input type="text" class="form-control" placeholder="Nama Burung" name='nama_lomba' value="<?php echo $data_lomba['nama_lomba']; ?>">
+          <input type="text" class="form-control" placeholder="Nama Lomba" name='nama_lomba' value="<?php echo $data_lomba['nama_lomba']; ?>">
         </div>
         <div class="form-group">
           <label>Waktu Pelaksanaan</label>
