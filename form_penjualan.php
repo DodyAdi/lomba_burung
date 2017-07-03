@@ -1,5 +1,5 @@
 <?php include 'header.php'; include 'koneksi.php';
-$query = "select *, date_format(tanggal, '%d %M %Y / Pukul %H:%I') as waktu from Lomba limit 1";
+$query = "SELECT *, DATE_FORMAT(tanggal, '%d %M %Y / Pukul %H:%I') AS waktu FROM Lomba WHERE status_lomba = 'Aktif' ORDER BY tanggal DESC ";
 $hasil = mysqli_query($konek, $query);
 $data = mysqli_fetch_assoc($hasil);
 $kode = $data['kd_lomba'];
@@ -27,16 +27,16 @@ $kode = $data['kd_lomba'];
       <form action="simpan_jual.php" method='POST'>
         <div class="form-group">
           <label>No Identitas</label>
-          <input type="number" class="form-control" placeholder="Nama Burung" name='id'>
+          <input type="number" class="form-control" placeholder="KTP, SIM, Passport" name='id'>
         </div>
         <div class="form-group">
           <label>Nama</label>
-          <input type="text" class="form-control" placeholder="Nama Burung" name='nama'>
+          <input type="text" class="form-control" placeholder="Nama Peserta" name='nama'>
         </div>
         <label>No Telepon</label>
         <div class="input-group">
           <span class="input-group-addon">+62</span>
-          <input type="number" class="form-control" id='x' name='no_telp'>
+          <input type="number" class="form-control" id='x' name='no_telp' placeholder="812354365">
         </div><br>
         <div class="form-group">
           <label>Alamat</label>

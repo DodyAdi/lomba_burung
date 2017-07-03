@@ -26,26 +26,28 @@
         <div class="collapse navbar-collapse" id="list-navbar">
           <ul class="nav navbar-nav">
             <?php if (!isset($_SESSION['nama'])): ?>
-            <li class="active"><a href="#">Home</a> </li>
-            <li><a href="data_jual.php">Pesan Tiket</a> </li>
+            <li class="active"><a href="index.php">Home</a> </li>
+            <li><a href="form_penjualan.php">Pesan Tiket</a> </li>
             <li><a href="konfirmasi_bayar.php">Konfirmasi Bayar</a> </li>
             <li><a href="lihat_jadwal.php">Lihat Jadwal</a> </li>
           <?php endif; ?>
             <?php  if (isset($_SESSION['nama'])): ?>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Admin Menu<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Kelola Data<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><b>Kelola Data</b></a></li>
                   <li><a href="form_data_burung.php">Kelola Data Burung</a></li>
                   <li><a href="data_lomba.php">Kelola Data Perlombaan</a></li>
                   <li><a href="daftar_konfirmasi.php">Kelola Data Konfirmasi Pembayaran</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#"><b>Laporan</b></a></li>
-                  <li><a href="laporan_perkelas.php">Laporan Per Kelas</a></li>
-                  <li><a href="#">Laporan Penjualan</a></li>
 
                 </ul>
               </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Laporan<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="laporan_perkelas.php">Laporan Per Kelas</a></li>
+                    <li><a href="#">Laporan Penjualan</a></li>
+                  </ul>
+                </li>
             <?php endif; ?>
           </ul>
           <ul class="nav navbar-nav navbar-right">

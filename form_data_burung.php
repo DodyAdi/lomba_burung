@@ -55,7 +55,7 @@ $i = 1;
               echo "<td>{$data['nama_burung']}</td>";
               echo "<td>
                 <button type='button' class='btn btn-warning' value='{$data['nama_burung']}' id='{$data['id_burung']}'>Edit</button>
-                <a href='simpan_burung.php/?id={$data['id_burung']}&aksi=delete'><button type='button' class='btn btn-danger'>Hapus</button></a></td></tr>";
+                <a href='simpan_burung.php/?id={$data['id_burung']}&aksi=delete' onClick='return confirm(\"Yakin hapus Jenis Burung {$data['nama_burung']} ?\")'><button type='button' class='btn btn-danger'>Hapus</button></a></td></tr>";
               $i++;
             } ?>
           </tr>

@@ -40,7 +40,7 @@
                 echo "<td align='center'><button type='button' class='btn btn-warning'>{$data['status_lomba']}</button></td>";
               }
               echo "<td><a href='form_edit_lomba.php?id={$data['kd_lomba']}'><button type='button' class='btn btn-warning'>Edit</button></a>
-                <a href='hapus_lomba.php?id={$data['kd_lomba']}&aksi=delete'><button type='button' class='btn btn-danger'>Hapus</button></td>";
+                <a href='hapus_lomba.php?id={$data['kd_lomba']}&aksi=delete' onClick='return confirm(\"Yakin hapus Lomba {$data['nama_lomba']} ?\")'><button type='button' class='btn btn-danger'>Hapus</button></td>";
               // $query_kelas = "SELECT * FROM kelas where kd_lomba = {$data['kd_lomba']} group by nama_kelas";
               // $hasil_kelas = mysqli_query($konek, $query_kelas);
               // $kelas = '';

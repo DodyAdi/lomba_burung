@@ -21,15 +21,17 @@ if (!$hasil_insert_konfirmasi) {
 }
 else {
   echo "berhasil konfirmasi bayar<br><br>";
+  echo $size;
   $insert = 'berhasil';
+  if ($size != 0 && $insert == "berhasil"){
+    if (move_uploaded_file($tmpName, $fileTujuanFoto)){
+      header("Location: lihat_jadwal.php");
+      echo "berhasil upload gambar <br/>";
+    }
+  }elseif ($size == 0 && $insert == "berhasil"){
+    header("Location: lihat_jadwal.php");
+    exit("gagal upload gambar");
+  }
 }
 
-if ($size > 0 && $insert == "berhasil"){
-	if (move_uploaded_file($tmpName, $fileTujuanFoto)){
-		echo "berhasil upload gambar <br/>";
-	}
-	else{
-		exit();
-	}
-}
  ?>

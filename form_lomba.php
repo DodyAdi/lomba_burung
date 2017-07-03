@@ -9,22 +9,22 @@ function klik(data) {
   $('.row.kelas'+data).remove();
 }
 
-// $( document ).ready(function() {
-//   $(".btn.btn-info").on('click',function(){
-//     //console.log('asdasd')
-//     $.ajax({
-//       type: "POST",
-//       dataType: 'json',
-//       url: 'tambah_kelas.php',
-//       data:  {kelas : i},
-//       success: function(data){
-//     	   $(".tampil.data").append(data.kelas);
-//        }
-//      });
-//     i++;
-//   });
-//
-// });
+$( document ).ready(function() {
+  $(".btn.btn-info").on('click',function(){
+    //console.log('asdasd')
+    $.ajax({
+      type: "POST",
+      dataType: 'json',
+      url: 'tambah_kelas.php',
+      data:  {kelas : i},
+      success: function(data){
+    	   $(".tampil.data").append(data.kelas);
+       }
+     });
+    i++;
+  });
+
+});
 </script>
 <div class="container-fluid" id='container'>
   <div class="row">
@@ -49,6 +49,7 @@ function klik(data) {
         </div>
           <button type="button" class="btn btn-info" >Tambah Kelas</button>
         <div class="form-group">
+          <br>
           <div class="tampil data">
           </div>
         </div>

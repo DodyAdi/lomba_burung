@@ -31,28 +31,39 @@ include 'koneksi.php';
      <div class="table-responsive">
        <table class="table table-bordered">
          <tr>
-           <th>No</th>
-           <th>Nama Kelas</th>
-           <th>Jumlah Tiket Terjual</th>
+           <th style="text-align:center;">No</th>
+           <th style="text-align:center;">Nama Kelas</th>
+           <th style="text-align:center;">Jumlah Tiket Terjual</th>
+           <th style="text-align:center;">Pendapatan PerKelas</th>
          </tr>
            <?php
            if (isset($_POST['lomba'])) {
-             $query = "SELECT k.`nama_kelas`, COUNT(k.kd_kelas) AS jml FROM kelas k
+             $query = "SELECT k.`nama_kelas`, COUNT(k.kd_kelas) AS jml, (COUNT(k.kd_kelas) * k.`harga`) AS pendapatan_perkelas FROM kelas k
                       JOIN detail_jual d_j ON	d_j.`kd_kelas`=k.`kd_kelas`
-                      WHERE k.kd_lomba = '{$_POST['lomba']}' GROUP BY k.`nama_kelas`";
+                      JOIN jual j ON j.`kd_jual`=d_j.`kd_jual`
+                      JOIN `konfirmasi_bayar` k_b ON k_b.`kd_jual`=j.`kd_jual`
+                      WHERE k.kd_lomba = '{$_POST['lomba']}' AND k_b.`status`='Terverivikasi' GROUP BY k.`nama_kelas`";
              $hasil = mysqli_query($konek,$query);
              $i = 1;
-             while ($data = mysqli_fetch_assoc($hasil)) { ?>
+             $total_pendapatan = 0 ;
+             while ($data = mysqli_fetch_assoc($hasil)) {
+               $total_pendapatan += $data['pendapatan_perkelas'];
+               ?>
                <tr>
                  <td><?php echo $i; ?></td>
                  <td><?php echo $data['nama_kelas']; ?></td>
-                 <td><?php echo $data['jml']; ?></td>
+                 <td style="text-align:center;"><?php echo $data['jml']; ?></td>
+                 <td style="text-align:right;"><?php echo $data['pendapatan_perkelas']; ?></td>
                </tr>
 
                <?php $i++;
               }
 
            } ?>
+           <tr>
+             <th colspan="3">Total Pendapatan</th>
+             <th style="text-align:right;"><?php if (isset($total_pendapatan))echo $total_pendapatan; ?></th>
+           </tr>
        </table>
      </div>
      <div class="col-md-1 col-md-offset-11">

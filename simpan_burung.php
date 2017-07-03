@@ -16,7 +16,7 @@ if ($_POST['aksi'] == "edit") {
     echo "<input type='button' Value='KEMBALI' onClick='self.history.back()'>";
   }
   else {
-    header("Location: data_burung.php");
+    header("Location: form_data_burung.php");
   }
 }
 
@@ -30,7 +30,7 @@ elseif ($_POST['aksi'] == "simpan") {
     echo "<input type='button' Value='KEMBALI' onClick='self.history.back()'>";
   }
   else {
-    header("Location: data_burung.php");
+    header("Location: form_data_burung.php");
   }
 }
 
@@ -45,7 +45,7 @@ elseif ($_GET['aksi'] == "delete") {
     echo "<input type='button' Value='KEMBALI' onClick='self.history.back()'>";
   }
   else {
-   header("Location: http://localhost/lomba_burung/data_burung.php");
+   header("Location: {$_SEVER['hostname']}/lomba_burung/form_data_burung.php");
   }
 }
 }

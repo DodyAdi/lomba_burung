@@ -7,11 +7,11 @@
   $data_lomba = mysqli_fetch_assoc($hasil_lomba);
  ?>
 
+<form action="simpan_edit_lomba.php" method='POST'>
 <div class="container-fluid" id='container'>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <br>
-      <form action="edit_lomba.php" method='POST'>
         <div class="form-group">
           <label>Nama Lomba</label>
           <input type="hidden" name="kode" value="<?php echo $data_lomba['kd_lomba']; ?>">
@@ -82,8 +82,12 @@
                 }
                ?>
           </div>
-        <button type="submit" class="btn btn-primary" value="simpan" name='aksi'>Submit</button>
-      </form>
+
     </div>
 </div>
+<div class="col-md-1 col-md-offset-7">
+  <button type="submit" class="btn btn-primary" value="simpan" name='aksi'>Submit</button>
+
+</div>
+</form>
 <br><br><br><br><br>

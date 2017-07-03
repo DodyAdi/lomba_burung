@@ -13,9 +13,9 @@
                       <input type='text' class='form-control' name='nama_kelas[]'></div>
                      <div class='form-group'><label>Harga Kelas ke -". ($kelas_no +1) ."</label>
                      <input type='number' class='form-control' name='harga[]'><br>
-                     <button type='button' class='btn btn-danger' value='$kelas_no' onClick='klik(this.value)'>Hapus Kelas ".($kelas_no +1)."</button>
                      </div></div><div class='col-md-4'>";
 
+                    //  <button type='button' class='btn btn-danger' value='$kelas_no' onClick='klik(this.value)'>Hapus Kelas ".($kelas_no +1)."</button>
    while ($isi=mysqli_fetch_assoc($hasil)){
     $data['kelas'] .= "<div class='checkbox'><label><input class='form-group' type='checkbox' name='burung[$kelas_no][]' value='{$isi['id_burung']}'>{$isi['nama_burung']}</label></div>";
    }
