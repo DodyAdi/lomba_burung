@@ -13,29 +13,29 @@ include 'koneksi.php';
            <th style="text-align:center;">Pendapatan PerLomba</th>
          </tr>
            <?php
-           if (isset($_POST['lomba'])) {
-             $query = "SELECT k.`nama_kelas`, COUNT(k.kd_kelas) AS jml, (COUNT(k.kd_kelas) * k.`harga`) AS pendapatan_perkelas FROM kelas k
+             $query = "SELECT l.`nama_lomba` , COUNT(k.kd_kelas) AS jml, SUM(k.`harga`) AS pendapatan_perlomba FROM kelas k
+		                  JOIN lomba l ON l.`kd_lomba`=k.`kd_lomba`
                       JOIN detail_jual d_j ON	d_j.`kd_kelas`=k.`kd_kelas`
                       JOIN jual j ON j.`kd_jual`=d_j.`kd_jual`
                       JOIN `konfirmasi_bayar` k_b ON k_b.`kd_jual`=j.`kd_jual`
-                      WHERE k.kd_lomba = '{$_POST['lomba']}' AND k_b.`status`='Terverivikasi' GROUP BY k.`nama_kelas`";
+                      GROUP BY l.`nama_lomba`";
              $hasil = mysqli_query($konek,$query);
              $i = 1;
              $total_pendapatan = 0 ;
              while ($data = mysqli_fetch_assoc($hasil)) {
-               $total_pendapatan += $data['pendapatan_perkelas'];
+               $total_pendapatan += $data['pendapatan_perlomba'];
                ?>
                <tr>
                  <td><?php echo $i; ?></td>
-                 <td><?php echo $data['nama_kelas']; ?></td>
+                 <td><?php echo $data['nama_lomba']; ?></td>
                  <td style="text-align:center;"><?php echo $data['jml']; ?></td>
-                 <td style="text-align:right;"><?php echo $data['pendapatan_perkelas']; ?></td>
+                 <td style="text-align:right;"><?php echo $data['pendapatan_perlomba']; ?></td>
                </tr>
 
                <?php $i++;
               }
 
-           } ?>
+            ?>
            <tr>
              <th colspan="3">Total Pendapatan</th>
              <th style="text-align:right;"><?php if (isset($total_pendapatan))echo $total_pendapatan; ?></th>

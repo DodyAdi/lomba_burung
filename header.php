@@ -45,7 +45,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Laporan<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="laporan_perkelas.php">Laporan Per Kelas</a></li>
-                    <li><a href="#">Laporan Penjualan</a></li>
+                    <li><a href="laporan_penjualan.php">Laporan Penjualan</a></li>
                   </ul>
                 </li>
             <?php endif; ?>

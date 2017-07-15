@@ -17,6 +17,7 @@ $hasil = mysqli_query($konek, $query);
          <table class="table table-bordered table-hover">
            <tr>
              <th width='3%'>No</th>
+             <th>Bukti Tranfer</th>
              <th>No Penjualan</th>
              <th>Id Pembeli</th>
              <th width='20%'>Nama Lomba</th>
@@ -26,12 +27,12 @@ $hasil = mysqli_query($konek, $query);
              <th width='10%'>Aksi</th>
            </tr>
            <tr>
-
              <?php
              $i = 1;
              while ($data = mysqli_fetch_assoc($hasil)) {
                echo "<tr>";
                 echo "<td>$i</td>";
+                echo "<td><a href='lihat_foto_bayar.php?foto={$data['bukti_bayar']}' target='_blank'><img src='bukti_bayar/{$data['bukti_bayar']}' width='50px' height='50px'></a></td>";
                 echo "<td>{$data['kd_jual']}</td>";
                 echo "<td>{$data['id_peserta']}</td>";
                 echo "<td>{$data['nama_lomba']}</td>";

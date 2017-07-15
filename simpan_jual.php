@@ -3,7 +3,7 @@ include "koneksi.php";
 error_reporting(0);
 $id = $_POST['id'];
 $nama = $_POST['nama'];
-$no_telp = $_POST['no_telp'];
+$no_telp = '+62'.$_POST['no_telp'];
 $alamat = $_POST['alamat'];
 $jk = $_POST['jk'];
 $kelas = $_POST['nama_kelas'];
@@ -62,7 +62,13 @@ else {
 
     $query = "UPDATE jual SET total_harga =  $total_harga WHERE kd_jual = $kode";
     mysqli_query($konek, $query);
-    header("location: konfirmasi_bayar.php");
+    $db_sms="gammu_sms";
+    $konek_sms=mysqli_connect($host,$user,$pass,$db_sms);
+    if (!$konek_sms) die(mysqli_connect_error());
+    $query_sms = mysqli_query($konek_sms, "INSERT INTO outbox (DestinationNumber, TextDecoded, CreatorID) value ('$no_telp','tes drive', 'Gammu')");
+    if ($query_sms) {
+      header("location: konfirmasi_bayar.php");
+    }
   }
 }
 
