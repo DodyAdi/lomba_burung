@@ -18,7 +18,7 @@ if (!is_dir($dirFoto))
 mkdir($dirFoto);
 $fileTujuanFoto = $dirFoto."/".$foto;
 
-$query = "insert into lomba (kd_lomba, nama_lomba, tempat, tanggal, status_lomba) values ($kode,'$nama_lomba','$alamat','$tanggal','Aktif')";
+$query = "insert into lomba (kd_lomba, nama_lomba, tempat, tanggal, status_lomba,foto) values ($kode,'$nama_lomba','$alamat','$tanggal','Aktif','$foto')";
 $hasil = mysqli_query($konek, $query);
 if (!$hasil) {
   echo mysqli_error($konek);

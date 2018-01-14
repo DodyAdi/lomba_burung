@@ -47,6 +47,18 @@
           <h3>Panitia PK2S</h3>
         </div>
       </div>
+      <div class="item">
+        <img src="gbr/juri.jpg" alt="Image" style="height:50%;">
+        <div class="carousel-caption">
+          <h3>Panitia PK2S</h3>
+        </div>
+      </div>
+      <div class="item">
+        <img src="gbr/lomba.jpg" alt="Image" style="height:50%;">
+        <div class="carousel-caption">
+          <h3>Panitia PK2S</h3>
+        </div>
+      </div>
     </div>
 
     <!-- Left and right controls -->

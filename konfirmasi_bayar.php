@@ -9,7 +9,7 @@
       <form action="simpan_konfirmasi_bayar.php" method='POST' enctype="multipart/form-data">
         <div class="form-group">
           <label>Kode Pembelian</label>
-          <input type="text" class="form-control" placeholder="Nama Burung" name='kode'>
+          <input type="text" class="form-control" placeholder="Kode Pembelian, contoh : 31128364" name='kode' required>
         </div>
         <div class="form-group">
           <label>Bukti beli</label>

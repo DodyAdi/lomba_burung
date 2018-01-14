@@ -30,6 +30,7 @@
             <li><a href="form_penjualan.php">Pesan Tiket</a> </li>
             <li><a href="konfirmasi_bayar.php">Konfirmasi Bayar</a> </li>
             <li><a href="lihat_jadwal.php">Lihat Jadwal</a> </li>
+            <li><a href="kontak.php">Kontak</a> </li>
           <?php endif; ?>
             <?php  if (isset($_SESSION['nama'])): ?>
             <li class="dropdown">

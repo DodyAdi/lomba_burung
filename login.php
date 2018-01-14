@@ -3,7 +3,7 @@ include 'header.php';
 include 'koneksi.php';
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
-  $query = "SELECT * FROM admin WHERE USER = 'admin' AND pass = md5('{$_POST['password']}')";
+  $query = "SELECT * FROM panitia WHERE USER = 'admin' AND pass = md5('{$_POST['password']}')";
   $hasil = mysqli_query($konek, $query);
   $data = mysqli_fetch_assoc($hasil);
   if ($data['user'] == $_POST['username'] && $data['pass'] == md5($_POST['password'])) {
